@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "TestProject1": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "tetsUrl": "https://learn.javascript.ru/"
+      },
+      "remoteDebugEnabled": false
+    }
+  }
+}
