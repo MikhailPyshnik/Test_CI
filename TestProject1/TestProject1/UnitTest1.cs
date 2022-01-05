@@ -9,15 +9,14 @@ namespace TestProject1
 {
     public class Tests
     {
+        string envValue = Environment.GetEnvironmentVariable("tetsUrl");
+
         [Test]
         public void Test1()
         {
             var commonPathToBinFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-
             string fullPathForSavedImage = $@"{commonPathToBinFolder}\tetsImge.jpg";
-            string envValue = Environment.GetEnvironmentVariable("tetsUrl");
-            Assert.AreEqual("https://learn.javascript.ru/", envValue);
-
+            
             AqualityServices.Browser.GoTo(envValue);
             AqualityServices.Browser.Maximize();
 
@@ -30,6 +29,12 @@ namespace TestProject1
             }
 
             AqualityServices.Browser.Quit();
+        }
+
+        [Test]
+        public void Test2()
+        {
+            Assert.AreEqual("https://learn.javascript.ru/", envValue, "Expected but was error url");
         }
     }
 }
